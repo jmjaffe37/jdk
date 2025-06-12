@@ -1004,6 +1004,7 @@ static bool add_allow_aces(PSECURITY_DESCRIPTOR pSD,
   }
 
   // add the new ACL to the security descriptor.
+  // Do we want to allow all access to the obejct? Happens if newACL is null here
   if (!SetSecurityDescriptorDacl(pSD, TRUE, newACL, FALSE)) {
     if (PrintMiscellaneous && Verbose) {
       warning("SetSecurityDescriptorDacl failure:"
